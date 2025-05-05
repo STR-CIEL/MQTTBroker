@@ -11,7 +11,9 @@ services:
       - ./mosquitto/data:/mosquitto/data 
       - ./mosquitto/log:/mosquitto/log 
     restart: unless-stopped 
-    
+
+    log_dest file /mosquitto/log/mosquitto.log log_type all  # Active tous les logs (messages, connexions, erreurs, etc.) 
+
     mqttx-web: 
     image: emqx/mqttx-web 
     container_name: mqttx_web 
